@@ -5,8 +5,6 @@ import com.Jeka8833.LabsKPITwo.ForceStopException;
 import com.Jeka8833.LabsKPITwo.Writer;
 import com.Jeka8833.LabsKPITwo.lab.Lab;
 
-import java.io.IOException;
-
 public class Laba3 implements Lab {
 
     @Override
@@ -16,20 +14,20 @@ public class Laba3 implements Lab {
 
     @Override
     public void run() throws ForceStopException {
-        Writer.init(new Column("x", Double.class), new Column("F", Double.class), new Column("F'", Double.class), new Column("F''", Double.class));
-        for (int i = -10_000; i < 10_000; i += 10) {
+        Writer.add(new Column("x", Double.class), new Column("F", Double.class), new Column("F'", Double.class), new Column("F''", Double.class));
+        for (int i = -5_000; i < 5_000; i += 10) {
             final double value = i / 1000d;
-            Writer.add(value, calculateF(value), Math.cosh(value) - 4 * value, Math.sinh(value) - 4);
+            Writer.add(value, F(value), Math.cosh(value) - 4 * value, Math.sinh(value) - 4);
         }
-        try {
-            Writer.saveResult();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Writer.saveResult();
         throw new ForceStopException();
     }
 
-    public static double calculateF(final double value) {
+    public static double F(final double value) {
         return Math.sinh(value) - 2 * (value * value) + 3;
+    }
+
+    public static double Fq(final double value) {
+        return Math.cosh(value) - 4 * value;
     }
 }

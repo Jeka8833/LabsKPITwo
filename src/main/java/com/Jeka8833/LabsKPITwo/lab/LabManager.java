@@ -2,10 +2,8 @@ package com.Jeka8833.LabsKPITwo.lab;
 
 import com.Jeka8833.LabsKPITwo.ForceStopException;
 import com.Jeka8833.LabsKPITwo.Reader;
-import com.Jeka8833.LabsKPITwo.lab.labs.Laba4;
-import com.Jeka8833.LabsKPITwo.lab.labs.Laba3;
-import com.Jeka8833.LabsKPITwo.lab.labs.Laba5;
-import com.Jeka8833.LabsKPITwo.lab.labs.Laba6;
+import com.Jeka8833.LabsKPITwo.Writer;
+import com.Jeka8833.LabsKPITwo.lab.labs.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +17,8 @@ public class LabManager {
         labs.add(new Laba4());
         labs.add(new Laba5());
         labs.add(new Laba6());
+        labs.add(new Laba8());
+        labs.add(new Laba9());
     }
 
     public static void draw() {
@@ -36,7 +36,7 @@ public class LabManager {
                     System.out.println("Команда break для выхода в меню!!!!!!!");
                     System.out.println("==================================================");
                     System.out.println();
-
+                    Writer.reset();
                     labs.get(value - 1).run();
                 }
             } else {

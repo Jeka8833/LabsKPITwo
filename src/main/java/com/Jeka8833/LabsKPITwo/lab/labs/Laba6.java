@@ -1,7 +1,9 @@
 package com.Jeka8833.LabsKPITwo.lab.labs;
 
+import com.Jeka8833.LabsKPITwo.Column;
 import com.Jeka8833.LabsKPITwo.ForceStopException;
 import com.Jeka8833.LabsKPITwo.Reader;
+import com.Jeka8833.LabsKPITwo.Writer;
 import com.Jeka8833.LabsKPITwo.lab.Lab;
 
 public class Laba6 implements Lab {
@@ -15,15 +17,26 @@ public class Laba6 implements Lab {
 
     @Override
     public void run() throws ForceStopException {
+        Writer.add(new Column("i", Integer.class), new Column("gamma", Double.class));
+
         double x = Reader.readDouble("Введите x: ");
         final double e = Reader.readDouble("Введите e: ");
         double gamma;
+        int i = 0;
         do {
-            final double fx = Laba5.F(x);
-            final double fxq = Laba5.Fq(x);
-            gamma = (fx) / fxq;
-            x = x - gamma;
+            gamma = F(x) / Fq(x);
+            x -= gamma;
+            Writer.add(i++, gamma);
         } while (Math.abs(gamma) > e);
+        Writer.saveResult();
         System.out.println("Ответ x: " + x);
+    }
+
+    public static double F(final double value) {
+        return Laba3.F(value);
+    }
+
+    public static double Fq(final double value) {
+        return Laba3.Fq(value);
     }
 }
