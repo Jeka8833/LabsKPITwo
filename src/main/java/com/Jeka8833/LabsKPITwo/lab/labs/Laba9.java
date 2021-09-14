@@ -31,7 +31,6 @@ public class Laba9 implements Lab {
 
     public static double[] calc(final int n, final double[][] a, final double[] b, final double e) {
         double[] x = MathArrays.copyOf(b);
-        final double[] xNew = new double[n];
         for (int itter = 0; itter < 100; itter++) {
             double eMax = 0;
             for (int i = 0; i < n; i++) {
@@ -41,11 +40,11 @@ public class Laba9 implements Lab {
                         continue;
                     sum += a[i][j] * x[j];
                 }
-                xNew[i] = (b[i] - sum) / a[i][i];
+                final double tmp = (b[i] - sum) / a[i][i];
 
-                eMax = Math.max(Math.abs(xNew[i] - x[i]), eMax);
+                eMax = Math.max(Math.abs(tmp - x[i]), eMax);
+                x[i] = tmp;
             }
-            x = xNew;
             if (eMax < e)
                 return x;
         }

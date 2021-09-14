@@ -4,6 +4,7 @@ import com.Jeka8833.LabsKPITwo.ForceStopException;
 import com.Jeka8833.LabsKPITwo.Reader;
 import com.Jeka8833.LabsKPITwo.Writer;
 import com.Jeka8833.LabsKPITwo.lab.labs.*;
+import com.Jeka8833.LabsKPITwo.lab.rgr.Rgr1;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +20,10 @@ public class LabManager {
         labs.add(new Laba6());
         labs.add(new Laba8());
         labs.add(new Laba9());
+        labs.add(new Laba13());
+        labs.add(new Laba15());
+
+        labs.add(new Rgr1());
     }
 
     public static void draw() {

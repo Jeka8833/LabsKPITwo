@@ -8,8 +8,6 @@ import com.Jeka8833.LabsKPITwo.lab.Lab;
 
 public class Laba5 implements Lab {
 
-    //Test https://planetcalc.ru/2824/
-
     @Override
     public String getName() {
         return "No 5. Розв’язання нелінійних рівнянь з одним невідомим. Метод простих ітерацій";
@@ -19,28 +17,27 @@ public class Laba5 implements Lab {
     public void run() throws ForceStopException {
         final double x = Reader.readDouble("Введите x: ");
         final double e = Reader.readDouble("Введите e: ");
-        final double res = calc(x, e, 1);
+        final double res = calc(x, e);
         Writer.saveResult();
         if (Double.isNaN(res))
             System.out.println("Ошибка: превышено количество итераций");
-        else if(Double.isInfinite(res))
+        else if (Double.isInfinite(res))
             System.out.println("Ошибка: невозможный результат");
         else
             System.out.println("Ответ x: " + res);
     }
 
-    public static double calc(final double x, final double e, final double alpha) {
+    public static double calc(final double x, final double e) {
         Writer.add(new Column("i", Integer.class), new Column("gamma", Double.class), new Column("x", Double.class));
         double xt = x;
         int i = 0;
         double gamma = 0;
         do {
-            if (i > 100_000)
+            if (i++ > 100_000)
                 return Double.NaN;
-            i++;
             Writer.add(i, gamma, xt);
 
-            final double func = alpha * F(xt);
+            final double func = F(xt);
             gamma = func - xt;
             xt = func;
         } while (Math.abs(gamma) > e);

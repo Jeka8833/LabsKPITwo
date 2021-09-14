@@ -6,8 +6,6 @@ import static org.testng.Assert.assertEquals;
 
 public class Laba8Test {
 
-    private static final int n = 4;
-
     private static final double[][] a1 = new double[][]{
             {2, 2, -1, 1},
             {-3, 0, 3, 0},
@@ -36,8 +34,8 @@ public class Laba8Test {
 
     @Test(timeOut = 10_000)
     public void testCalc() {
-        assertEquals(Laba8.calc(n, a1, b1), r1, 0.000_000_1f);
-        assertEquals(Laba8.calc(n, a2, b2), r2, 0.000_000_1f);
-        assertEquals(Laba8.calc(n, a3, b3), r3, 0.000_000_1f);
+        assertEquals(Laba8.calc(4, a1, b1), r1, 0.000_000_1f);
+        assertEquals(Laba8.calc(4, a2, b2), r2, 0.000_000_1f);
+        assertEquals(Laba8.calc(4, a3, b3), r3, 0.000_000_1f);
     }
 }

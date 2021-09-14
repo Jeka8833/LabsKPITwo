@@ -7,6 +7,7 @@ import com.Jeka8833.LabsKPITwo.Writer;
 import com.Jeka8833.LabsKPITwo.lab.Lab;
 
 public class Laba4 implements Lab {
+
     @Override
     public String getName() {
         return "No 4. Розв’язання нелінійних рівнянь з одним невідомим. Метод поділу навпіл (бісекції)";
@@ -14,20 +15,27 @@ public class Laba4 implements Lab {
 
     @Override
     public void run() throws ForceStopException {
-        Writer.add(new Column("i", Integer.class), new Column("|b - a|", Double.class),
-                new Column("a", Double.class), new Column("x", Double.class), new Column("b", Double.class),
-                new Column("f(x)", Double.class));
+        final double a = Reader.readDouble("Введите a: ");
+        final double b = Reader.readDouble("Введите b: ");
+        final double e = Reader.readDouble("Введите e: ");
+        final double res = calc(a, b, e);
 
-        double a = Reader.readDouble("Введите a: ");
-        double b = Reader.readDouble("Введите b: ");
-
-        if (Math.signum(F(a)) == Math.signum(F(b))) {
+        if (Double.isNaN(res)) {
             System.out.println("ErrCode = -1");
             System.out.println("Знаки должны отличатся a(" + a + ") = " + F(a) + " b(" + b + ") = " + F(b));
             return;
         }
+        Writer.saveResult();
 
-        final double e = Reader.readDouble("Введите e: ");
+        System.out.println("Ответ x: " + res);
+    }
+
+    public static double calc(double a, double b, final double e) {
+        if (Math.signum(F(a)) == Math.signum(F(b)))
+            return Double.NaN;
+        Writer.add(new Column("i", Integer.class), new Column("|b - a|", Double.class),
+                new Column("a", Double.class), new Column("x", Double.class), new Column("b", Double.class),
+                new Column("f(x)", Double.class));
         final double sfa = Math.signum(F(a));
         int i = 1;
         do {
@@ -38,8 +46,7 @@ public class Laba4 implements Lab {
             else
                 b = x;
         } while (Math.abs(b - a) > e);
-        Writer.saveResult();
-        System.out.println("Ответ x: " + (a + (b - a) / 2));
+        return a + (b - a) / 2;
     }
 
     public static double F(final double value) {

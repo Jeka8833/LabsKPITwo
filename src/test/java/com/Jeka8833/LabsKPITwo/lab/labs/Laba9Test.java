@@ -2,45 +2,23 @@ package com.Jeka8833.LabsKPITwo.lab.labs;
 
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.*;
+import static org.testng.Assert.assertEquals;
 
 public class Laba9Test {
 
-    private static final int n = 4;
-
-    private static final double[][] a1 = new double[][]{
-            {2, 2, -1, 1},
-            {-3, 0, 3, 0},
-            {-1, 3, 3, 2},
-            {1, 0, 0, 4}};
-    private static final double[][] a2 = new double[][]{
-            {-7, -6, -6, 6},
-            {7, 6, 8, -13},
-            {4, 17, -16, 10},
-            {-5, 18, 19, 0}
-    };
-    private static final double[][] a3 = new double[][]{
-            {3, -2, -7, -1},
-            {7, -10, -5, 1},
-            {4, 0, -15, -9},
-            {-8, 8, 13, 4}
+    private static final double[][] a4 = new double[][]{
+            {8, 0, 2, 0},
+            {0, 6, 0, 5},
+            {2, 0, 5, 0},
+            {0, 5, 0, 10}
     };
 
-    private static final double[] b1 = new double[]{3, -9, -7, 4};
-    private static final double[] b2 = new double[]{144, -170, 21, -445};
-    private static final double[] b3 = new double[]{2, 28, -21, -11};
+    private static final double[] b4 = new double[]{15, 10, 5, 0};
 
-    private static final double[] r1 = new double[]{4, -2, 1, 0};
-    private static final double[] r2 = new double[]{0, -11, -13, 0};
-    private static final double[] r3 = null;
+    private static final double[] r4 = new double[]{65 / 36d, 20 / 7d, 5 / 18d, -10 / 7d};
 
     @Test(timeOut = 10_000)
     public void testCalc() {
-        System.out.println("Test 1");
-        assertEquals(Laba9.calc(n, a1, b1, 0.000_000_1), r1, 0.000_000_1);
-        System.out.println("Test 2");
-        assertEquals(Laba9.calc(n, a2, b2, 0.000_000_1), r2, 0.000_000_1);
-        System.out.println("Test 3");
-        assertEquals(Laba9.calc(n, a3, b3, 0.000_000_1), r3, 0.000_000_1);
+        assertEquals(Laba9.calc(4, a4, b4, 0.000_001), r4, 0.000_001);
     }
 }
