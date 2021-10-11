@@ -35,16 +35,16 @@ public class Laba5 implements Lab {
         do {
             if (i++ > 100_000)
                 return Double.NaN;
-            Writer.add(i, gamma, xt);
 
             final double func = F(xt);
             gamma = func - xt;
             xt = func;
+            Writer.add(i, gamma, xt);
         } while (Math.abs(gamma) > e);
         return xt;
     }
 
     public static double F(final double value) {
-        return Laba4.F(value);
+        return Math.sqrt((Math.sinh(value) + 3) / 2);
     }
 }

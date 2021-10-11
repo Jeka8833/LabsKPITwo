@@ -20,6 +20,8 @@ public class LabManager {
         labs.add(new Laba6());
         labs.add(new Laba8());
         labs.add(new Laba9());
+        labs.add(new Laba10());
+        labs.add(new Laba11());
         labs.add(new Laba13());
         labs.add(new Laba15());
 
