@@ -12,7 +12,7 @@ import java.text.DecimalFormat;
 public class Rgr1 implements Lab {
     @Override
     public String getName() {
-        return null;
+        return "РГР 1";
     }
 
     @Override

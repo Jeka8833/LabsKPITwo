@@ -32,8 +32,6 @@ public class Laba8 implements Lab {
         } catch (Exception exception) {
             System.out.println("Lib error");
         }
-        Writer.addMatrix(a, "a-");
-        Writer.addMatrix(b, "b-");
 
         final double[] x = calc(n, a, b);
         if (x == null)

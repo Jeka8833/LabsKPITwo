@@ -15,7 +15,7 @@ public class Laba9Test {
 
     private static final double[] b4 = new double[]{15, 10, 5, 0};
 
-    private static final double[] r4 = new double[]{65 / 36d, 20 / 7d, 5 / 18d, -10 / 7d};
+    private static final double[] r4 = new double[]{1.8055555555555556, 2.857142857142857, 0.2777777777777778, -1.4285714285714286};
 
     @Test(timeOut = 10_000)
     public void testCalc() {

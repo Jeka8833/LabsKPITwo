@@ -7,8 +7,8 @@ import java.util.Scanner;
 
 public class Reader {
 
-    private static final Scanner in = new Scanner(System.in);
-    private static final Random r = new Random();
+    private static final Scanner IN = new Scanner(System.in);
+    private static final Random RANDOM = new Random();
 
     public static int readInt(final String msg) throws ForceStopException {
         while (true) {
@@ -64,7 +64,7 @@ public class Reader {
 
     public static @NotNull String readString(final String msg) throws ForceStopException {
         System.out.print(msg);
-        final String read = in.nextLine();
+        final String read = IN.nextLine();
         if (read.equalsIgnoreCase("exit"))
             System.exit(0);
         else if (read.equalsIgnoreCase("break"))
@@ -84,7 +84,7 @@ public class Reader {
                         if (text.equalsIgnoreCase("random")) {
                             for (int y1 = 0; y1 < height; y1++) {
                                 for (int x1 = 0; x1 < width; x1++) {
-                                    a[y1][x1] = r.nextInt(10);
+                                    a[y1][x1] = RANDOM.nextInt(10);
                                 }
                             }
                             return a;
@@ -111,7 +111,7 @@ public class Reader {
                     final String text = Reader.readString("y: " + i + " Value: ");
                     if (text.equalsIgnoreCase("random")) {
                         for (int j = 0; j < width; j++) {
-                            b[j] = r.nextInt(10);
+                            b[j] = RANDOM.nextInt(10);
                         }
                         return b;
                     }
