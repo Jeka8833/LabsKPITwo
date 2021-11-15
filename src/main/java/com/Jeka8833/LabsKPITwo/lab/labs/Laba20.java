@@ -28,11 +28,13 @@ public class Laba20 implements Lab {
         final double[] y = new double[n];
         final double h = (Math.max(tmax, 0) - Math.max(t0, 0)) / (double) n;
         y[0] = y0;
+        t[0] = t0;
 
         calc(f, t, y, h);
         Writer.add(new Column("t", Double.class), new Column("y", Double.class), new Column("yreal", Double.class));
         for (int i = 0; i < n; i++) {
-            Writer.add(t[i], y[i], Math.sqrt(2 * Math.log(1 + Math.exp(t[i]))));
+            Writer.add(t[i], y[i], Math.sqrt(2 * Math.log(1 + Math.exp(t[i]))
+                    + 0.262825296852515882482148160290620004116236714343782758938306039024960362677066435950800421611228280083630017487794268965568178419414232219175312299604085949793538887511061625054234339495043873177346219796783734440409176559712518240184842));
         }
         Writer.saveResult();
     }
