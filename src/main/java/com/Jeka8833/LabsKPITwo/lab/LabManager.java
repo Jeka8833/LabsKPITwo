@@ -27,6 +27,7 @@ public class LabManager {
         labs.add(new Laba17());
         labs.add(new Laba18());
         labs.add(new Laba20());
+        labs.add(new Laba21());
 
         labs.add(new Rgr1());
     }
